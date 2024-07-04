@@ -25,7 +25,7 @@ Future<void> main() async {
   }
 
   final loginConfig = HashMap<String, LoginConfigItem>();
-  // 0x0efbdafdf5d311ce38f405db6dc3cb9cfb99bf83
+ 
   loginConfig['google'] = LoginConfigItem(
     verifier: "mocaverse-agg-verifier",
     verifierSubIdentifier: "google",
@@ -33,7 +33,7 @@ Future<void> main() async {
     clientId:
         "519228911939-cri01h55lsjbsia1k7ll6qpalrus75ps.apps.googleusercontent.com",
   );
-  // 0x0efbdafdf5d311ce38f405db6dc3cb9cfb99bf83
+  
   loginConfig['jwt'] = LoginConfigItem(
     verifier: "mocaverse-agg-verifier",
     verifierSubIdentifier: "email-passwordless",

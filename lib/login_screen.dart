@@ -31,29 +31,31 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Web3Auth CustomAuth Sample",
-              style: Theme.of(context).textTheme.headlineSmall,
-              textAlign: TextAlign.center,
-              maxLines: 2,
-            ),
-            verticalGap,
-            OutlinedButton(
-              onPressed: () => _loginWithEmailPasswordless(
-                context,
-                Provider.email_passwordless,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Web3Auth CustomAuth Sample",
+                style: Theme.of(context).textTheme.headlineSmall,
+                textAlign: TextAlign.center,
+                maxLines: 2,
               ),
-              child: const Text("Login with Email passwordless"),
-            ),
-            verticalGap,
-            OutlinedButton(
-              onPressed: () => _loginWithGoogle(context, Provider.google),
-              child: const Text("Login with Google"),
-            )
-          ],
+              verticalGap,
+              OutlinedButton(
+                onPressed: () => _loginWithEmailPasswordless(
+                  context,
+                  Provider.email_passwordless,
+                ),
+                child: const Text("Login with Email passwordless"),
+              ),
+              verticalGap,
+              OutlinedButton(
+                onPressed: () => _loginWithGoogle(context, Provider.google),
+                child: const Text("Login with Google"),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -81,7 +83,6 @@ class _LoginScreenState extends State<LoginScreen> {
             domain: 'https://web3auth.au.auth0.com',
             verifierIdField: 'email',
             // connection: 'email',
-            // login_hint: "ayush@frontier.xyz",
           ),
         ),
       );

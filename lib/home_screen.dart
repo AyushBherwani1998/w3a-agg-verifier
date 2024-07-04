@@ -30,7 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> loadAccount(BuildContext context) async {
     try {
-      //0xeb0c3aeE77123CBbc33B74B171f962B6A640B5D6
       final response = await Web3AuthFlutter.getWeb3AuthResponse();
       final tssPubKey = response.tssPubKey!;
 
@@ -65,11 +64,15 @@ class _HomeScreenState extends State<HomeScreen> {
         valueListenable: isAccountLoaded,
         builder: (context, isLoaded, _) {
           if (isLoaded) {
-            return Center(
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(address),
+                  Text(
+                    address,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                   const SizedBox(height: 16),
                   OutlinedButton(
                     onPressed: () => _launchWalletServices(),
