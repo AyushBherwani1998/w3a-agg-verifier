@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ Future<void> main() async {
   }
 
   final loginConfig = HashMap<String, LoginConfigItem>();
- 
+
   loginConfig['google'] = LoginConfigItem(
     verifier: "mocaverse-agg-verifier",
     verifierSubIdentifier: "google",
@@ -33,7 +34,7 @@ Future<void> main() async {
     clientId:
         "519228911939-cri01h55lsjbsia1k7ll6qpalrus75ps.apps.googleusercontent.com",
   );
-  
+
   loginConfig['jwt'] = LoginConfigItem(
     verifier: "mocaverse-agg-verifier",
     verifierSubIdentifier: "email-passwordless",
@@ -52,7 +53,11 @@ Future<void> main() async {
     ),
   );
 
-  await Web3AuthFlutter.initialize();
+  try {
+    await Web3AuthFlutter.initialize();
+  } catch (e, _) {
+    log(e.toString(), stackTrace: _);
+  }
 
   runApp(const MainApp());
 }
